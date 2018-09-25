@@ -2,6 +2,9 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+
+import javax.swing.JTextField;
 
 import model.*;
 import view.*;
@@ -20,29 +23,38 @@ public class GestionEventos {
 	public void contol() {
 		actionListener_comparar = new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
-				// TODO: Llamar a la función call_compararContenido
+				call_compararContenido();
 			}
 		};
 		view.getComparar().addActionListener(actionListener_comparar);
 
 		actionListener_buscar = new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
-				// TODO: Llamar a la función call_buscarPalabra
+				// TODO: Llamar a la funciï¿½n call_buscarPalabra
 			}
 		};
 		view.getBuscar().addActionListener(actionListener_buscar);
 	}
 
 	private int call_compararContenido() {
-
-		// TODO: Llamar a la función compararContenido de GestionDatos
-		// TODO: Gestionar excepciones
+		
+		// TODO: Llamar a la funciï¿½n compararContenido de GestionDatos
+		String fich1 = view.getFichero1().getText();
+		String fich2 = view.getFichero2().getText();
+		
+		try {
+			GestionDatos.compararContenido(fich1, fich2);
+		} catch (IOException e) {
+			System.out.println("ERROR2");
+			e.printStackTrace();
+		}
+		// TODO: Gestionar excepcione
 		return 1;
 	}
 
 	private int call_buscarPalabra() {
 
-		// TODO: Llamar a la función buscarPalabra de GestionDatos
+		// TODO: Llamar a la funciï¿½n buscarPalabra de GestionDatos
 		// TODO: Gestionar excepciones
 		return 1;
 	}
